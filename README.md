@@ -9,12 +9,13 @@ Quick guide for setting up a VM instance on Oracle Cloud for self-hosting applic
 To increase chances of successful VM provisioning, upgrade to **Pay-as-you-go** account:
 - Navigate to **Billing & Cost Management → Upgrade and Manage Payment**
 - This maintains free tier eligibility while improving resource allocation success
-![Screenshot 2025-06-11 141824](https://github.com/user-attachments/assets/85fb4595-7016-48da-8248-3ce60f948a5b)
 
+![Screenshot 2025-06-11 141824](https://github.com/user-attachments/assets/85fb4595-7016-48da-8248-3ce60f948a5b)
 
 ## 🖥️ VM Instance Creation
 
 ![armScreenshot 2025-06-11 140741](https://github.com/user-attachments/assets/01bbc56d-cfe3-49c6-ab7c-99e10760bf93)
+
 **Free Tier Limits:**
 - **ARM A1 Flex**: Up to 4 vCPUs and 24 GB RAM (maximum free tier allocation)
 - **AMD/Intel**: VM.Standard.E2.1.Micro (1 vCPU, 1 GB RAM)
@@ -32,6 +33,7 @@ A static public IP is essential for hosting applications as it allows you to poi
 - ✅ **Enable "Automatically assign public IPv4 address"** during VM setup
 - IP becomes permanent and survives VM restarts
 - **Recommended approach**
+
 ![Scr222eenshot 2025-06-11 140429](https://github.com/user-attachments/assets/635fe3ca-a628-4922-bdd4-18174d1c6988)
 
 ### Method 2: Reserve and Assign Later
@@ -84,6 +86,7 @@ Once you have your static public IP, point your domain to it:
    - **Host/Name:** @ (for root domain) or subdomain (e.g., app, chat)
    - **Value/Points to:** Your Oracle Cloud static IP
    - **TTL:** 14400 (or default)
+
 ![Screenshot 2025-06-11 142336](https://github.com/user-attachments/assets/dbf67c4a-dd29-44cc-ac87-0bc3761490d4)
 
 **Example:**
@@ -92,5 +95,34 @@ Once you have your static public IP, point your domain to it:
 - **Result:** chat.yourdomain.com points to your VM
 
 *Screenshots showing DNS configuration will be provided below.*
+
+## 🔧 Connecting to Your VM
+
+Once your VM is running and you have the public IP address, connect via SSH:
+
+```bash
+ssh -i ~/path/to/your-private-key.key ubuntu@YOUR_PUBLIC_IP
+```
+
+**Example:**
+```bash
+ssh -i ~/Downloads/ssh-key-2025-06-11.key ubuntu@130.162.214.12
+```
+
+## 📦 Initial VM Setup
+
+After connecting to your VM, run these essential commands:
+
+```bash
+# Update package repository
+sudo apt update
+
+# Install network tools (for netstat and networking diagnostics)
+sudo apt install net-tools
+
+
+```
+
+Your VM is now ready for application installation!
 
 This setup provides a solid foundation for hosting applications on Oracle Cloud's free tier.
