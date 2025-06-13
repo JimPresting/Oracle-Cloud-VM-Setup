@@ -248,6 +248,7 @@ sudo systemctl restart chatwoot.target
 5. **Restart:** `sudo systemctl restart chatwoot.target`
 
 **Detailed instructions:** [Google Workspace Setup Guide](https://www.chatwoot.com/docs/self-hosted/configuration/features/email-channel/google-workspace-setup/)
+Analog for **Microsoft Office365:** [Office365 Chatwoot Setup](https://developers.chatwoot.com/self-hosted/configuration/features/email-channel/azure-app-setup)
 
 ## 📱 Facebook & Instagram Integration
 
