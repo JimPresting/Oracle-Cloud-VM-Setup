@@ -239,7 +239,7 @@ sudo systemctl restart chatwoot.target
    - `https://your-domain.com/google/callback`
    - `https://your-domain.com/omniauth/google_oauth2/callback`
 3. **Enable APIs:** Gmail API, Google Calendar API
-4. **Add to .env:**
+4. **Add to .env:** (Find path via:  sudo find /home/chatwoot/ -name ".env" 2>/dev/null)
    ```bash
    GOOGLE_OAUTH_CLIENT_ID=your_client_id
    GOOGLE_OAUTH_CLIENT_SECRET=your_client_secret
